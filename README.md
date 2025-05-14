@@ -9,11 +9,11 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
    - title_type is exists and equal to 'parts only' then 'unfit'
    - title_type is exists and equal to 'rebuilt' then 'fair'
    - title_type is exists and equal to 'missing'
-    - odometer <10,000 then 'like new'
-    - odometer > 10,000 -20,000 then 'excellent' 
-    - odometer between 20,000-40,000 'fair'
-    - odometer >40,000 <100000 then 'good'
-    - Rest missing values (293 rows) has been dropped
+     - odometer <10,000 then 'like new'
+     - odometer > 10,000 -20,000 then 'excellent' 
+     - odometer between 20,000-40,000 'fair'
+     - odometer >40,000 <100000 then 'good'
+     - Rest missing values (293 rows) has been dropped
   - Title_status missing values (0.02%) dropped
   - Use vin library to replace the missing values for 'Model', 'Cylinders', 'Car Type', 'Drive' ## Long Operations ##
 - Ordinal and nominal features 
