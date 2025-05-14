@@ -66,16 +66,16 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
     - title_status  10552.630861  
       - [outcome]  title status positively impact the price i.e. clean title are highly priced than rebuilt or salvage
 
-- Execute stricter Regularization techniques - `LassoCV`
+- Execute stricter Regularization techniques - LassoCV
   - best 2 feature which highly impacting the car prices for 2010-2020
     - fuel  -13592.451017 
-      - [outcome] *Negatively impact higher car price based on fuel types in order - Diesel > Gas > Electric > Hybrid *
+      - [outcome] Negatively impact higher car price based on fuel types in order - Diesel > Gas > Electric > Hybrid 
     - condition odometer   13378.182650  
-      - [outcome] *Positively impact same odometer but better condition car is pricy, same condition with less odomoeter is pricey*
+      - [outcome] Positively impact same odometer but better condition car is pricy, same condition with less odomoeter is pricey
   - best 2 feature which highly impacting the car prices for 2000-2010
     - fuel transmission  1.081598e+06  
       - [outcome] *positively impact* automatic hybrid cars are higher prices then automatic electric cars
-    - transmission       *-2.925253e+05*
+    - transmission       -2.925253e+05
       - [outcome] negatively impact manual car prices are higher than automatic
 
 
