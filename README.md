@@ -55,35 +55,37 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 - Execute Regularization techniques - RidgeCV  
    - Best 2 feature which highly impacting the car prices for 2010-2020
      - condition odometer^2  -64564.451719 
-       - [*outcome*] Highly Negative new with higher odometer are less price than like 'new' or 'excellent' with less odometer 
+       - [*outcome*] `Highly Negative` 'new' with higher 'odometer' are less price than like 'new' or 'excellent' with less 'odometer' 
      - condition odometer    -38237.081637
-       - [*outcome*] Less negatively 
+       - [*outcome*] `Less negatively` 
    - Best 3 feature which highly impacting the car prices for 2000-2010
      - fuel          -68182.847606 
-       - [*outcome*:] Highly Negative but 'Diesel' engines are better price than 'Gas' 
+       - [*outcome*:] `Highly Negative` 'Diesel' engines are better price than 'Gas' 
      - transmission  -21820.810879 
-       - [*outcome*]  Negatively impact prices but 'Manual' transmission is better price than 'Automatic'
+       - [*outcome*]  `Negatively impact` prices but 'Manual' transmission is better price than 'Automatic'
      - title_status  10552.630861  
-       - [*outcome*]  title status positively impact the price i.e. clean title are highly priced than rebuilt or salvage
+       - [*outcome*]  `Positively impact` 'title_status' positively impact the price i.e. 'clean' title are highly priced than 'rebuilt' or 'salvage'
 
 - Execute stricter Regularization techniques - LassoCV
    - Best 2 feature which highly impacting the car prices for 2010-2020
      - fuel  -13592.451017 
-       - [*outcome*] Negatively impact higher car price based on fuel types in order - Diesel > Gas > Electric > Hybrid 
+       - [*outcome*] `Negatively impact` higher car price based on 'fuel' types in order - Diesel > Gas > Electric > Hybrid 
      - condition odometer   13378.182650  
-       - [*outcome*] Positively impact same odometer but better condition car is pricy, same condition with less odomoeter is pricey
+       - [*outcome*] `Positively impact` same 'odometer' but better 'condition' car is pricy, same 'condition' with less 'odomoeter' is pricey
    - Best 2 feature which highly impacting the car prices for 2000-2010
      - fuel transmission  1.081598e+06  
-       - [*outcome*] `positively impact` automatic hybrid cars are higher prices then automatic electric cars
+       - [*outcome*] `Positively impact` 'automatic' 'hybrid' cars are higher prices then 'automatic' 'electric' cars
      - transmission       -2.925253e+05
-       - [*outcome*] negatively impact manual car prices are higher than automatic
+       - [*outcome*] `Negatively impact` 'manual' car prices are higher than 'automatic'
 
 
 **Recommandations** :
 1. No clear guidelines for car price variation with features but some guidelines can be extracted based on the data analysis
 2. Guidelines can not be generic but mostly tied with the car manufacturing year 
-3. For cars manufactured between 
-New car with higher odometer reading will less price
+3. Cars manufacutered between 2010 to 2020, Higher car price based on 'fuel' types in order - Diesel > Gas > Electric > Hybrid
+4. Cars manufacutered between 2010 to 2020, Same 'odometer' but better 'condition' car is pricy, same 'condition' with less 'odomoeter' is pricey
+5. Cars manufacutered between 2000 to 2010, 'automatic hybrid' cars are higher prices then 'automatic electric' cars similarly, 'manual hybrid' is higher price than 'automatic hybrid'
+6. Cars manufacutered between 2000 to 2010, 'manual' car prices are higher than 'automatic'
 
 # Link to Jupyter notebook
 [notebook link](https://github.com/vishalnigam/ml-car-costing-driver/blob/main/car-costing-drivers.ipynb)
