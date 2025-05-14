@@ -2,46 +2,46 @@
 The provided dataset contains information on 426K cars to ensure the speed of processing. Goal is to understand what factors make a car more or less expensive & based on that, provide recommandation to Car dealers.
 
 # Summary of the findings/actions 
-1. Missing values
-    1.1 Odometer missing values (0.01%) replaced with mean 
-    1.2 Condition missing values (37%) replaces with certain logic
-        1.2.1 title_type is exists and equal to 'salvege' then set 'salvage'
-        1.2.2 title_type is exists and equal to 'parts only' then 'unfit'
-        1.2.3 title_type is exists and equal to 'rebuilt' then 'fair'
-        1.2.4 title_type is exists and equal to 'missing'
-            1.2.4.1 odometer <10,000 then 'like new'
-            1.2.4.2 odometer > 10,000 -20,000 then 'excellent' 
-            1.2.4.3 odometer between 20,000-40,000 'fair'
-            1.2.4.4 odometer >40,000 <100000 then 'good'
-            1.2.4.5 Rest missing values (293 rows) has been dropped
-    1.3 Title_status missing values (0.02%) dropped
-    1.4 Use vin library to replace the missing values for 'Model', 'Cylinders', 'Car Type', 'Drive' ## Long Operations ##
-2. Ordinal and nominal features 
-    2.1 replaced with ordered values to faciliate regression using numeric values
-3. Drop missing values 
-    3.1 rows correponding to 'Year', 'Fuel', 'Transmission', 'Model', 'Odometer', 'Manufacturer'
-4. Convert datatypes 
-    4.1 'Odometer' & 'Year' to int64
-5. Categorize cars based on year of manufacturing
-    5.1 80s     - Cars manufactured between 1900-1980
-    5.2 2000    - Cars manufactured between 1980-2000
-    5.2 2010    - Cars manufactured between 2000-2010
-    5.2 2020    - Cars manufactured between 2010-2020
-    5.2 2025    - Cars manufactured between 2020-onward 
-6. Store incremental data
-    6.1 Updated data to be stored incrementally in 'incremental_modified_data.csv' to preseve updates to avoid long running process
+- Missing values
+  - Odometer missing values (0.01%) replaced with mean 
+  - Condition missing values (37%) replaces with certain logic
+   - title_type is exists and equal to 'salvege' then set 'salvage'
+   - title_type is exists and equal to 'parts only' then 'unfit'
+   - title_type is exists and equal to 'rebuilt' then 'fair'
+   - title_type is exists and equal to 'missing'
+    - odometer <10,000 then 'like new'
+    - odometer > 10,000 -20,000 then 'excellent' 
+    - odometer between 20,000-40,000 'fair'
+    - odometer >40,000 <100000 then 'good'
+    - Rest missing values (293 rows) has been dropped
+  - Title_status missing values (0.02%) dropped
+  - Use vin library to replace the missing values for 'Model', 'Cylinders', 'Car Type', 'Drive' ## Long Operations ##
+- Ordinal and nominal features 
+  - replaced with ordered values to faciliate regression using numeric values
+- Drop missing values 
+  - rows correponding to 'Year', 'Fuel', 'Transmission', 'Model', 'Odometer', 'Manufacturer'
+- Convert datatypes 
+  - 'Odometer' & 'Year' to int64
+- Categorize cars based on year of manufacturing
+  - 80s     - Cars manufactured between 1900-1980
+  - 2000    - Cars manufactured between 1980-2000
+  - 2010    - Cars manufactured between 2000-2010
+  - 2020    - Cars manufactured between 2010-2020
+  - 2025    - Cars manufactured between 2020-onward 
+- Store incremental data
+  - Updated data to be stored incrementally in 'incremental_modified_data.csv' to preseve updates to avoid long running process
 
 **Observation**:
-1. Clustring by years - based on odmoter vs price with title_status and condition 
-    1.1 Before 1980         - title ('clean') condition ('Excellent', ' Fair') Odometer (>10,000) Price (1,000 - 1,00,000)
-    1.2 Between 1980-2000   - title ('clean') condition ('Excellent', ' Fair') Odometer (10,000 - 1,00,000) price (1,000 - 1,00,000)
-    1.3 Between 2000-2010   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (>10,000) Price (10,000 - 10,00,000)
-    1.4 Between 2010-2020   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (1,000 - 10,00,000) Price (2 clusters - 100s-1000s & >1000s)
-    1.5 Before 2020         - title ('clean' 'lien') condition ('Excellent', ' Fair') Odometer (>10,000)
-2. Prices has no relationship with car odometer
-3. Most of the inventory in later years i.e. after 2010, are prominently are 'White' or 'black' in color
-4. Most of the cars inventory in order of Ford, Cheverolet, toyota & honda
-5. Correlation model don't show any clear indication of price variation with any feature - 'condition', 'fuel', 'odometer', 'transmission', 'title_status'
+- Clustring by years - based on odmoter vs price with title_status and condition 
+  - Before 1980         - title ('clean') condition ('Excellent', ' Fair') Odometer (>10,000) Price (1,000 - 1,00,000)
+  - Between 1980-2000   - title ('clean') condition ('Excellent', ' Fair') Odometer (10,000 - 1,00,000) price (1,000 - 1,00,000)
+  - Between 2000-2010   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (>10,000) Price (10,000 - 10,00,000)
+  - Between 2010-2020   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (1,000 - 10,00,000) Price (2 clusters - 100s-1000s & >1000s)
+  - Before 2020         - title ('clean' 'lien') condition ('Excellent', ' Fair') Odometer (>10,000)
+- Prices has no relationship with car odometer
+- Most of the inventory in later years i.e. after 2010, are prominently are 'White' or 'black' in color
+- Most of the cars inventory in order of Ford, Cheverolet, toyota & honda
+- Correlation model don't show any clear indication of price variation with any feature - 'condition', 'fuel', 'odometer', 'transmission', 'title_status'
 
 **Modeling**
 1. Execute linear regression with 'year' , 'condition', 'fuel', 'odometer', 'title_status', 'transmission' against 'price'
@@ -74,4 +74,9 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 New car with higher odometer reading will less price
 
 # Link to Jupyter notebook
-[notebook link](https://github.com/vishalnigam/ml-coupon-acceptance/blob/main/prompt.ipynb)
+[notebook link](https://github.com/vishalnigam/ml-car-costing-driver/blob/main/car-costing-drivers.ipynb)
+
+condition_ord = ['unfit', 'salvage', 'fair', 'good','excellent' , 'like new' ,'new' ]
+title_status_ord = [ 'missing', 'parts only', 'lien', 'salvage','rebuilt', 'clean'  ]
+fuel_ord = ['other', 'diesel', 'gas', 'electric','hybrid']
+transmission_ord = ['other', 'manual', 'automatic' ]
