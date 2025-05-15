@@ -15,11 +15,11 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
      - _odometer >40,000 <100000 then 'good'_
      - _Rest missing values (293 rows) has been dropped_
   - Title_status missing values (0.02%) dropped
-  - Use vin library to replace the missing values for 'Model', 'Cylinders', 'Car Type', 'Drive' ## Long Operations ##
+  - Use vin library to replace the missing values for _'Model', 'Cylinders', 'Car Type', 'Drive'_ __Long Operations__
 - Ordinal and nominal features 
   - replaced with ordered values to faciliate regression using numeric values
 - Drop missing values 
-  - rows correponding to 'Year', 'Fuel', 'Transmission', 'Model', 'Odometer', 'Manufacturer'
+  - rows correponding to _'Year', 'Fuel', 'Transmission', 'Model', 'Odometer', 'Manufacturer'_
 - Convert datatypes 
   - 'Odometer' & 'Year' to int64
 - Categorize cars based on year of manufacturing
@@ -44,38 +44,38 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 - Correlation model don't show any clear indication of price variation with any feature - 'condition', 'fuel', 'odometer', 'transmission', 'title_status'
 
 **Modeling**
-- Execute linear regression with 'year' , 'condition', 'fuel', 'odometer', 'title_status', 'transmission' against 'price'
-   - Best hyperparameters - 'poly__degree': 3, 'poly__include_bias': False, 'regressor__fit_intercept': False
-   - Best 2 features which highly impact the car prices based on linear regression
-      - condition odometer^2 -69627.487811
+- Execute linear regression with _'year' , 'condition', 'fuel', 'odometer', 'title_status', 'transmission' against 'price'_
+   - __Best hyperparameters__ - 'poly__degree': 3, 'poly__include_bias': False, 'regressor__fit_intercept': False
+   - __Best 2 features__ which highly impact the car prices based on linear regression
+      - condition odometer**2 (69627.487811)
         - [*outcome*:]condition with odometers are highly impacting negatively the price means new car with higher odomter is less costly then 'like new' or        'new' with less odometer reading
-      - transmission^2  62729.647111 
+      - transmission**2 (62729.647111) 
         - [*outcome*] positively impact the price which means 'automatic' cars are more pricey then 'manual' transmission  
 
 - Execute Regularization techniques - RidgeCV  
-   - Best 2 feature which highly impacting the car prices for 2010-2020
-     - condition odometer^2  -64564.451719 
+   - __Best 2 feature__ which highly impacting the car prices for _2010-2020_
+     - condition odometer**2 (64564.451719) 
        - [*outcome*] `Highly Negative` 'new' with higher 'odometer' are less price than like 'new' or 'excellent' with less 'odometer' 
-     - condition odometer    -38237.081637
+     - condition odometer (-38237.081637)
        - [*outcome*] `Less negatively` 
-   - Best 3 feature which highly impacting the car prices for 2000-2010
-     - fuel          -68182.847606 
+   - __Best 3 feature__ which highly impacting the car prices for _2000-2010_
+     - fuel (-68182.847606) 
        - [*outcome*:] `Highly Negative` 'Diesel' engines are better price than 'Gas' 
-     - transmission  -21820.810879 
+     - transmission (-21820.810879) 
        - [*outcome*]  `Negatively impact` prices but 'Manual' transmission is better price than 'Automatic'
-     - title_status  10552.630861  
+     - title_status (10552.630861)  
        - [*outcome*]  `Positively impact` 'title_status' positively impact the price i.e. 'clean' title are highly priced than 'rebuilt' or 'salvage'
 
 - Execute stricter Regularization techniques - LassoCV
-   - Best 2 feature which highly impacting the car prices for 2010-2020
-     - fuel  -13592.451017 
+   - __Best 2 feature__ which highly impacting the car prices for _2010-2020_
+     - fuel (-13592.451017) 
        - [*outcome*] `Negatively impact` higher car price based on 'fuel' types in order - Diesel > Gas > Electric > Hybrid 
-     - condition odometer   13378.182650  
+     - condition odometer (13378.182650)  
        - [*outcome*] `Positively impact` same 'odometer' but better 'condition' car is pricy, same 'condition' with less 'odomoeter' is pricey
-   - Best 2 feature which highly impacting the car prices for 2000-2010
-     - fuel transmission  1.081598e+06  
+   - __Best 2 feature__ which highly impacting the car prices for _2000-2010_
+     - fuel transmission (1.081598e+06)  
        - [*outcome*] `Positively impact` 'automatic' 'hybrid' cars are higher prices then 'automatic' 'electric' cars
-     - transmission       -2.925253e+05
+     - transmission (-2.925253e+05)
        - [*outcome*] `Negatively impact` 'manual' car prices are higher than 'automatic'
 
 
