@@ -47,10 +47,10 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 - Execute linear regression with _'year' , 'condition', 'fuel', 'odometer', 'title_status', 'transmission' against 'price'_
    - __Best hyperparameters__ - 'poly__degree': 3, 'poly__include_bias': False, 'regressor__fit_intercept': False
    - __Best 2 features__ which highly impact the car prices based on linear regression
-      - condition odometer**2 (69627.487811)
-        - [*outcome*:]condition with odometers are highly impacting negatively the price means new car with higher odomter is less costly then 'like new' or        'new' with less odometer reading
+      - condition odometer**2 (-69627.487811)
+        - [*outcome*:] `Highly Negative` condition with odometers are highly impacting negatively the price means new car with higher odomter is less costly then 'like new' or        'new' with less odometer reading
       - transmission**2 (62729.647111) 
-        - [*outcome*] positively impact the price which means 'automatic' cars are more pricey then 'manual' transmission  
+        - [*outcome*] `positively impact` the price which means 'automatic' cars are more pricey then 'manual' transmission  
 
 - Execute Regularization techniques - RidgeCV  
    - __Best 2 feature__ which highly impacting the car prices for _2010-2020_
@@ -88,7 +88,7 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 6. Cars manufacutered between 2000 to 2010, 'manual' car prices are higher than 'automatic'
 
 
-__*Note*__: _current analysis is for cars between 2000-2020 and similar model can be created for rest of the year ranges and include more features - state, city,color, model, manufacturer, cylinders, drive, size, type which has not been considered.
+__*Note*__: current analysis is for cars between 2000-2020 and similar model can be created for rest of the year ranges and include more features - state, city,color, model, manufacturer, cylinders, drive, size, type which has not been considered.
 
 # Link to Jupyter notebook
 [notebook link](https://github.com/vishalnigam/ml-car-costing-driver/blob/main/car-costing-drivers.ipynb)
