@@ -9,8 +9,8 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
    - title_type is exists and equal to 'parts only' then 'unfit'
    - title_type is exists and equal to 'rebuilt' then 'fair'
    - title_type is exists and equal to 'missing'
-     - odometer <10,000 then 'like new'
-     - odometer > 10,000 -20,000 then 'excellent' 
+     - _odometer <10,000 then 'like new'_
+     - _odometer > 10,000 -20,000 then 'excellent'_  
      - odometer between 20,000-40,000 'fair'
      - odometer >40,000 <100000 then 'good'
      - Rest missing values (293 rows) has been dropped
