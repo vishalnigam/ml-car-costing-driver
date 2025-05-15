@@ -10,10 +10,10 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
    - title_type is exists and equal to 'rebuilt' then 'fair'
    - title_type is exists and equal to 'missing'
      - _odometer <10,000 then 'like new'_
-     - _odometer > 10,000 -20,000 then 'excellent'_  
-     - odometer between 20,000-40,000 'fair'
-     - odometer >40,000 <100000 then 'good'
-     - Rest missing values (293 rows) has been dropped
+     - _odometer > 10,000 -20,000 then 'excellent'_ 
+     - _odometer between 20,000-40,000 'fair'_
+     - _odometer >40,000 <100000 then 'good'_
+     - _Rest missing values (293 rows) has been dropped_
   - Title_status missing values (0.02%) dropped
   - Use vin library to replace the missing values for 'Model', 'Cylinders', 'Car Type', 'Drive' ## Long Operations ##
 - Ordinal and nominal features 
@@ -23,21 +23,21 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 - Convert datatypes 
   - 'Odometer' & 'Year' to int64
 - Categorize cars based on year of manufacturing
-  - 80s     - Cars manufactured between 1900-1980
-  - 2000    - Cars manufactured between 1980-2000
-  - 2010    - Cars manufactured between 2000-2010
-  - 2020    - Cars manufactured between 2010-2020
-  - 2025    - Cars manufactured between 2020-onward 
+  - _80s     - Cars manufactured between 1900-1980_
+  - _2000    - Cars manufactured between 1980-2000_
+  - _2010    - Cars manufactured between 2000-2010_
+  - _2020    - Cars manufactured between 2010-2020_
+  - _2025    - Cars manufactured between 2020-onward_ 
 - Store incremental data
   - Updated data to be stored incrementally in 'incremental_modified_data.csv' to preseve updates to avoid long running process
 
 **Observation**:
 - Clustring by years - based on odmoter vs price with title_status and condition 
-  - Before 1980         - title ('clean') condition ('Excellent', ' Fair') Odometer (>10,000) Price (1,000 - 1,00,000)
-  - Between 1980-2000   - title ('clean') condition ('Excellent', ' Fair') Odometer (10,000 - 1,00,000) price (1,000 - 1,00,000)
-  - Between 2000-2010   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (>10,000) Price (10,000 - 10,00,000)
-  - Between 2010-2020   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (1,000 - 10,00,000) Price (2 clusters - 100s-1000s & >1000s)
-  - Before 2020         - title ('clean' 'lien') condition ('Excellent', ' Fair') Odometer (>10,000)
+  - _Before 1980         - title ('clean') condition ('Excellent', ' Fair') Odometer (>10,000) Price (1,000 - 1,00,000)_
+  - _Between 1980-2000   - title ('clean') condition ('Excellent', ' Fair') Odometer (10,000 - 1,00,000) price (1,000 - 1,00,000)_
+  - _Between 2000-2010   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (>10,000) Price (10,000 - 10,00,000)_
+  - _Between 2010-2020   - title ('clean' , 'rebuilt') condition ('Excellent', ' Fair') Odometer (1,000 - 10,00,000) Price (2 clusters - 100s-1000s & >1000s)_
+  - _Before 2020         - title ('clean' 'lien') condition ('Excellent', ' Fair') Odometer (>10,000)_
 - Prices has no relationship with car odometer
 - Most of the inventory in later years i.e. after 2010, are prominently 'White' or 'black' in color
 - Most of the cars inventory in order of Ford, Cheverolet, Toyota & Honda
