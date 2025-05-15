@@ -86,6 +86,8 @@ The provided dataset contains information on 426K cars to ensure the speed of pr
 4. Cars manufacutered between 2010 to 2020, Same 'odometer' but better 'condition' car is pricy, same 'condition' with less 'odomoeter' is pricey
 5. Cars manufacutered between 2000 to 2010, 'automatic hybrid' cars are higher prices then 'automatic electric' cars similarly, 'manual hybrid' is higher price than 'automatic hybrid'
 6. Cars manufacutered between 2000 to 2010, 'manual' car prices are higher than 'automatic'
+
+
 __*Note*__: _current analysis is for cars between 2000-2020 and similar model can be created for rest of the year ranges and include more features - state, city,color, model, manufacturer, cylinders, drive, size, type which has not been considered.
 
 # Link to Jupyter notebook
